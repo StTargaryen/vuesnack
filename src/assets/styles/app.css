@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.snack-enter-active, .snack-leave-active {
+  transition: all .5s ease-in-out;
+}
+
+.snack-enter-from, .snack-leave-to {
+  transform: translateY(-24px);
+  opacity: 0;
+}

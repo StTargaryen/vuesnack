@@ -1,14 +1,28 @@
 <template>
-  <a href="">Snack trigger</a>
+  <snack />
+  <a href="#" @click.prevent="doSomething">Snack trigger</a>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import Snack from "./components/Snack";
 
 export default {
-  name: 'App',
-  components: {
-    }
-}
+  name: "App",
+  components: {Snack},
+  methods: {
+    ...mapActions({
+      snack: "snack",
+    }),
+
+    doSomething() {
+      this.snack({
+        text: "This is a snack!",
+        delay: 1000
+      });
+    },
+  },
+};
 </script>
 
 <style src="./assets/styles/app.css" />
